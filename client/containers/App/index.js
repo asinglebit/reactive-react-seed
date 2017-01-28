@@ -34,6 +34,13 @@ class App extends Component {
     });
   }
 
+  addEpicTodo() {
+    this.props.actions.addEpicTodo({
+      id: Math.random(),
+      text: 'Do something'
+    });
+  }
+
   deleteTodo(id) {
     this.props.actions.deleteTodo(id);
   }
@@ -43,6 +50,7 @@ class App extends Component {
       <div className="app">
         <Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
         <Button click={ this.addTodo.bind(this) } title="Add todo"/>
+        <Button click={ this.addEpicTodo.bind(this) } title="Add epic todo"/>
       </div>
     );
   }

@@ -3,10 +3,21 @@
 */
 
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from 'reducers';
+import { createEpicMiddleware } from 'redux-observable';
 
-const store = applyMiddleware(thunk)(createStore)(rootReducer);
+/*
+* Reducers
+*/
+
+import rootReducer from 'reducers';
+import rootEpic from 'epics';
+
+/*
+* Wiring the store
+*/
+
+const epicMiddleware = createEpicMiddleware(rootEpic);
+const store = createStore(rootReducer, applyMiddleware(epicMiddleware)); 
 
 /*
 * Exports
