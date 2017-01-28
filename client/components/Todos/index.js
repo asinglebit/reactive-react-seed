@@ -9,18 +9,12 @@ import React from 'react';
 */
 
 import {
-  Button
+  Todo
 } from '../../components';
 
 /**
 * Todos component definition and export
 */
-
-const Todo = props => 
-  <div key={ props.id } className="todo">
-  	<span>{ props.id } : { props.text }</span>
-  	<Button click={ () => props.deleteTodo(props.id) } title="X"/>
-  </div>
 
 export const Todos = props => 
   <div className="todos">
