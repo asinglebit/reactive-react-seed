@@ -16,6 +16,6 @@ export const Button = props =>
  */
 
 Button.propTypes = {
-    handleClick: React.PropTypes.function,
+    handleClick: React.PropTypes.func,
     title: React.PropTypes.string
 };

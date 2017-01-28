@@ -59,16 +59,16 @@ class App extends Component {
         return (
             <div className="app">
               <Todos todos={this.props.todos} deleteTodo={this.deleteTodo}/>
-              <Button click={this.addTodo} title="Add todo"/>
-              <Button click={this.addEpicTodo} title="Add epic todo"/>
+              <Button handleClick={this.addTodo} title="Add todo"/>
+              <Button handleClick={this.addEpicTodo} title="Add epic todo"/>
             </div>
         );
     }
 }
 
 App.propTypes = {
-    actions: React.PropTypes.objectOf(React.PropTypes.function),
-    todos: React.PropTypes.object
+    actions: React.PropTypes.object,
+    todos: React.PropTypes.array
 };
 
 

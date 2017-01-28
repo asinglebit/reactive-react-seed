@@ -29,5 +29,5 @@ export const Todos = props =>
 
 Todos.propTypes = {
     todos: React.PropTypes.array,
-    deleteTodo: React.PropTypes.function
+    deleteTodo: React.PropTypes.func
 };

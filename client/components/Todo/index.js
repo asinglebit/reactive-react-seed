@@ -34,5 +34,5 @@ export const Todo = props => {
 Todo.propTypes = {
     id: React.PropTypes.number,
     text: React.PropTypes.string,
-    deleteTodo: React.PropTypes.function
+    deleteTodo: React.PropTypes.func
 };
