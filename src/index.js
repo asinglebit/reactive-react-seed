@@ -27,7 +27,7 @@ import {
  * Template
  */
 
-import 'index.html';
+import 'assets/index.html';
 
 /**
  * Entry point
