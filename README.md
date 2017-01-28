@@ -9,12 +9,21 @@ Features:
 	- Redux
 	- Rxjs
 	- Rxjs Epics
-	- Webpack 2
+	- Webpack 2,
+	- Tree shaking
+	- HMR
 
 Todo:
 
+	- Loading static assets
+	- Css
 	- Sass
-	- Jest
-	- Flow
 	- Ramda
+	- Karma
+	- Jasmine
+	- Sinon
+	- Chai
+	- Protractor
 	- Reselect
+	- Flow
+	- Resemble
