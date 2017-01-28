@@ -30,7 +30,7 @@ export default function todos(state = defaultTodos, action) {
       return [...state, action.payload];
     case DELETE_TODO:
       let newState = [];
-      for (i = 0; i < state.length; ++i) {
+      for (let i = 0; i < state.length; ++i) {
         if (state[i].id !== action.payload) {
           newState.push(Object.assign({}, state[i]));
         }

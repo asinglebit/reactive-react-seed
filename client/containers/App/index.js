@@ -34,11 +34,15 @@ class App extends Component {
     });
   }
 
+  deleteTodo(id) {
+    this.props.actions.deleteTodo(id);
+  }
+
   render() {
     return (
       <div className="app">
-        <Todos todos={this.props.todos}/>
-        <Button click={this.addTodo.bind(this)} title="Add todo"/>
+        <Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
+        <Button click={ this.addTodo.bind(this) } title="Add todo"/>
       </div>
     );
   }
