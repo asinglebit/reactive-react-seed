@@ -16,7 +16,10 @@ import * as Actions from 'actions';
 * Components
 */
 
-import { Todos } from 'components';
+import {
+  Button,
+  Todos
+} from 'components';
 
 /**
 * App container definition
@@ -24,15 +27,10 @@ import { Todos } from 'components';
 
 class App extends Component {
 
-  componentWillMount() {
-    const { actions } = this.props;
-    actions.addTodo({
-      id: 0,
+  addTodo() {
+    this.props.actions.addTodo({
+      id: Math.random(),
       text: 'Do something'
-    });
-    actions.addTodo({
-      id: 1,
-      text: 'Do something else'
     });
   }
 
@@ -40,6 +38,7 @@ class App extends Component {
     return (
       <div className="app">
         <Todos todos={this.props.todos}/>
+        <Button click={this.addTodo.bind(this)} title="Add todo"/>
       </div>
     );
   }
