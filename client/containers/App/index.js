@@ -12,12 +12,6 @@ import { connect } from 'react-redux';
 
 import * as AppActions from 'actions';
 
-/**
-* Styles
-*/
-
-import './style.css';
-
 class App extends Component {
 
   componentWillMount() {

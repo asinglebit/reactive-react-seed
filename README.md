@@ -1,1 +1,1 @@
-react-seed
+React Application Seed

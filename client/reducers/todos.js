@@ -1,3 +1,7 @@
+/*
+* Libraries
+*/
+
 import { combineReducers } from 'redux';
 
 /*
