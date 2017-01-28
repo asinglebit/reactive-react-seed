@@ -9,4 +9,13 @@ import React from 'react';
  */
 
 export const Button = props =>
-    <button onClick = { props.click } > { props.title } < /button>
+    <button onClick={props.handleClick}>{props.title}</button>;
+
+/**
+ * Prop types
+ */
+
+Button.propTypes = {
+    handleClick: React.PropTypes.function,
+    title: React.PropTypes.string
+};

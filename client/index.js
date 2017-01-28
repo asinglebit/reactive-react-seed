@@ -35,7 +35,7 @@ import 'index.html';
 
 ReactDOM.render(
     <Provider store={store}>
-    	<App />
+        <App />
 	</Provider>,
     document.getElementById('app')
 );

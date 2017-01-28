@@ -33,34 +33,44 @@ import {
 
 class App extends Component {
 
-    addTodo() {
+    constructor(props) {
+        super(props);
+    }
+
+    addTodo = () => {
         this.props.actions.addTodo({
             id: Math.random(),
             text: 'Do something'
         });
     }
 
-    addEpicTodo() {
+    addEpicTodo = () => {
         this.props.actions.addEpicTodo({
             id: Math.random(),
             text: 'Do something'
         });
     }
 
-    deleteTodo(id) {
+    deleteTodo = (id) => {
         this.props.actions.deleteTodo(id);
     }
 
     render() {
         return (
             <div className="app">
-              <Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
-              <Button click={ this.addTodo.bind(this) } title="Add todo"/>
-              <Button click={ this.addEpicTodo.bind(this) } title="Add epic todo"/>
+              <Todos todos={this.props.todos} deleteTodo={this.deleteTodo}/>
+              <Button click={this.addTodo} title="Add todo"/>
+              <Button click={this.addEpicTodo} title="Add epic todo"/>
             </div>
         );
     }
 }
+
+App.propTypes = {
+    actions: React.PropTypes.objectOf(React.PropTypes.function),
+    todos: React.PropTypes.object
+};
+
 
 /**
  * Store bindings
@@ -70,11 +80,11 @@ export default connect(
     (state) => {
         return {
             todos: state.todos
-        }
+        };
     },
     (dispatch) => {
         return {
             actions: bindActionCreators(Actions, dispatch)
-        }
+        };
     }
 )(App);

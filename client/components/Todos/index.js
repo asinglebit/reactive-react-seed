@@ -18,5 +18,16 @@ import {
 
 export const Todos = props =>
     <div className="todos">
-		{ props.todos.map(todo => <Todo key={ 'todo_' + todo.id } id={ todo.id } text={ todo.text } deleteTodo={ props.deleteTodo }/>) }
-	</div>
+		{ props.todos.map(todo =>
+			<Todo key={'todo_' + todo.id} id={todo.id} text={todo.text} deleteTodo={props.deleteTodo}/>)
+		}
+	</div>;
+
+/**
+ * Prop types
+ */
+
+Todos.propTypes = {
+    todos: React.PropTypes.array,
+    deleteTodo: React.PropTypes.function
+};
