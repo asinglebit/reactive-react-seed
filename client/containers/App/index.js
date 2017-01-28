@@ -54,10 +54,10 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-		    	<Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
-		    	<Button click={ this.addTodo.bind(this) } title="Add todo"/>
-		    	<Button click={ this.addEpicTodo.bind(this) } title="Add epic todo"/>
-      		</div>
+              <Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
+              <Button click={ this.addTodo.bind(this) } title="Add todo"/>
+              <Button click={ this.addEpicTodo.bind(this) } title="Add epic todo"/>
+            </div>
         );
     }
 }

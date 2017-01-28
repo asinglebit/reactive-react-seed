@@ -19,7 +19,7 @@ module.exports = function(env) {
                 NODE_ENV: JSON.stringify(nodeEnv)
             }
         }),
-        new webpack.NamedModulesPlugin(),
+        new webpack.NamedModulesPlugin()
     ];
 
     if (isProd) {
@@ -39,11 +39,11 @@ module.exports = function(env) {
                     dead_code: true,
                     evaluate: true,
                     if_return: true,
-                    join_vars: true,
+                    join_vars: true
                 },
                 output: {
-                    comments: false,
-                },
+                    comments: false
+                }
             })
         );
     } else {
@@ -61,7 +61,7 @@ module.exports = function(env) {
         },
         output: {
             path: staticsPath,
-            filename: '[name].bundle.js',
+            filename: '[name].bundle.js'
         },
         module: {
             rules: [{
@@ -71,8 +71,8 @@ module.exports = function(env) {
                     loader: 'file-loader',
                     query: {
                         name: '[name].[ext]'
-                    },
-                },
+                    }
+                }
             }, {
                 test: /\.css$/,
                 exclude: /node_modules/,
@@ -85,8 +85,8 @@ module.exports = function(env) {
                 exclude: /node_modules/,
                 use: [
                     'babel-loader'
-                ],
-            }, ],
+                ]
+            }]
         },
         resolve: {
             extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
@@ -101,12 +101,12 @@ module.exports = function(env) {
         performance: isProd && {
             maxAssetSize: 100,
             maxEntrypointSize: 300,
-            hints: 'warning',
+            hints: 'warning'
         },
 
         stats: {
             colors: {
-                green: '\u001b[32m',
+                green: '\u001b[32m'
             }
         },
 
@@ -128,9 +128,9 @@ module.exports = function(env) {
                 version: false,
                 warnings: true,
                 colors: {
-                    green: '\u001b[32m',
+                    green: '\u001b[32m'
                 }
-            },
+            }
         }
     };
 };

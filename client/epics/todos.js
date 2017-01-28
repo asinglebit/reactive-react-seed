@@ -20,7 +20,7 @@ export const addEpicTodoaction = action$ => {
     return action$
         .ofType(Actions.ADD_EPIC_TODO)
         .delay(1000)
-        .switchMap(action => Observable.of(Actions.addTodo(action.payload)))
+        .switchMap(action => Observable.of(Actions.addTodo(action.payload)));
 };
 
 /**

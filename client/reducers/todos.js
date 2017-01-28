@@ -1,18 +1,10 @@
 /*
- * Libraries
- */
-
-import {
-    combineReducers
-} from 'redux';
-
-/*
  * Actions
  */
 
 import {
     ADD_TODO,
-    DELETE_TODO,
+    DELETE_TODO
 } from 'actions';
 
 /*
