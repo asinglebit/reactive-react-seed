@@ -20,22 +20,35 @@ import {
 const defaultTodos = [];
 
 /**
+ * Add todo
+ */
+
+const addTodo = (state, action) => [...state, action.payload];
+
+/**
+ * Delete todo
+ */
+
+const deleteTodo = (state, action) => {
+  let newState = [];
+  for (let i = 0; i < state.length; ++i) {
+    if (state[i].id !== action.payload) {
+      newState.push(Object.assign({}, state[i]));
+    }
+  }
+  return newState;
+};
+
+/**
  * Reducer
  */
 
 export default function todos(state = defaultTodos, action) {
-  let newState;
   switch (action.type) {
     case ADD_TODO:
-      return [...state, action.payload];
+      return addTodo(state, action);
     case DELETE_TODO:
-      let newState = [];
-      for (let i = 0; i < state.length; ++i) {
-        if (state[i].id !== action.payload) {
-          newState.push(Object.assign({}, state[i]));
-        }
-      }
-      return newState;
+      return deleteTodo(state, action);      
     default:
       return state;
   }
