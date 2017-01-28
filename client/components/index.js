@@ -1,6 +1,6 @@
 /*
-* Exports
-*/
+ * Exports
+ */
 
 export * from './Button';
 export * from './Todo';

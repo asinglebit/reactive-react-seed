@@ -1,23 +1,23 @@
 /**
-* Libraries
-*/
+ * Libraries
+ */
 
 import React from 'react';
 
 /**
-* Components
-*/
+ * Components
+ */
 
 import {
-  Button
+    Button
 } from '../../components';
 
 /**
-* Todo component definition and export
-*/
+ * Todo component definition and export
+ */
 
-export const Todo = props => 
-  <div key={ props.id } className="todo">
-  	<span>{ props.id } : { props.text }</span>
-  	<Button click={ () => props.deleteTodo(props.id) } title="X"/>
-  </div>
+export const Todo = props =>
+    <div key = { props.id } className = "todo">
+    <span> { props.id }: { props.text } </span>
+    <Button click = { () => props.deleteTodo(props.id) } title = "X" />
+    </div>

@@ -1,30 +1,32 @@
 /**
-* Libraries
-*/
+ * Libraries
+ */
 
-import { Observable } from 'rxjs';
+import {
+    Observable
+} from 'rxjs';
 
 /**
-* Actions
-*/
+ * Actions
+ */
 
 import * as Actions from '../actions';
 
 /**
-* Epics
-*/
+ * Epics
+ */
 
 export const addEpicTodoaction = action$ => {
-  return action$
-  .ofType(Actions.ADD_EPIC_TODO)
-  .delay(1000)
-  .switchMap(action => Observable.of(Actions.addTodo(action.payload)))
+    return action$
+        .ofType(Actions.ADD_EPIC_TODO)
+        .delay(1000)
+        .switchMap(action => Observable.of(Actions.addTodo(action.payload)))
 };
 
 /**
-* Exports
-*/
+ * Exports
+ */
 
 export default [
-	addEpicTodoaction
+    addEpicTodoaction
 ];

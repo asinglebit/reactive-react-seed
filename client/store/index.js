@@ -1,26 +1,31 @@
 /*
-* Libraries
-*/
+ * Libraries
+ */
 
-import { createStore, applyMiddleware } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
+import {
+    createStore,
+    applyMiddleware
+} from 'redux';
+import {
+    createEpicMiddleware
+} from 'redux-observable';
 
 /*
-* Reducers
-*/
+ * Reducers
+ */
 
 import rootReducer from 'reducers';
 import rootEpic from 'epics';
 
 /*
-* Wiring the store
-*/
+ * Wiring the store
+ */
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
-const store = createStore(rootReducer, applyMiddleware(epicMiddleware)); 
+const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 /*
-* Exports
-*/
+ * Exports
+ */
 
 export default store;

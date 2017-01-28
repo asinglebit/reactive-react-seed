@@ -1,17 +1,19 @@
 /*
-* Libraries
-*/
+ * Libraries
+ */
 
-import { combineEpics } from 'redux-observable';
+import {
+    combineEpics
+} from 'redux-observable';
 
 /*
-* Epics
-*/
+ * Epics
+ */
 
 import todos from './todos';
 
 /*
-* Exports
-*/
+ * Exports
+ */
 
 export default combineEpics(...todos);

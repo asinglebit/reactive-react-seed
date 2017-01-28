@@ -1,21 +1,23 @@
 /*
-* Libraries
-*/
-
-import { combineReducers } from 'redux';
-
-/*
-* Actions
-*/
+ * Libraries
+ */
 
 import {
-  ADD_TODO,
-  DELETE_TODO,
+    combineReducers
+} from 'redux';
+
+/*
+ * Actions
+ */
+
+import {
+    ADD_TODO,
+    DELETE_TODO,
 } from 'actions';
 
 /*
-* Default state
-*/
+ * Default state
+ */
 
 const defaultTodos = [];
 
@@ -30,13 +32,13 @@ const addTodo = (state, action) => [...state, action.payload];
  */
 
 const deleteTodo = (state, action) => {
-  let newState = [];
-  for (let i = 0; i < state.length; ++i) {
-    if (state[i].id !== action.payload) {
-      newState.push(Object.assign({}, state[i]));
+    let newState = [];
+    for (let i = 0; i < state.length; ++i) {
+        if (state[i].id !== action.payload) {
+            newState.push(Object.assign({}, state[i]));
+        }
     }
-  }
-  return newState;
+    return newState;
 };
 
 /**
@@ -44,12 +46,12 @@ const deleteTodo = (state, action) => {
  */
 
 export default function todos(state = defaultTodos, action) {
-  switch (action.type) {
-    case ADD_TODO:
-      return addTodo(state, action);
-    case DELETE_TODO:
-      return deleteTodo(state, action);      
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case ADD_TODO:
+            return addTodo(state, action);
+        case DELETE_TODO:
+            return deleteTodo(state, action);
+        default:
+            return state;
+    }
 }

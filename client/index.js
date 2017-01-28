@@ -1,37 +1,41 @@
 /**
-* Libraries
-*/
+ * Libraries
+ */
 
 import 'rxjs';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 /**
-* Store
-*/
+ * Store
+ */
 
-import { Provider } from 'react-redux';
+import {
+    Provider
+} from 'react-redux';
 import store from 'store';
 
 /**
-* Containers
-*/
+ * Containers
+ */
 
-import { App } from 'containers';
+import {
+    App
+} from 'containers';
 
 /**
-* Template
-*/
+ * Template
+ */
 
 import 'index.html';
 
 /**
-* Entry point
-*/
+ * Entry point
+ */
 
 ReactDOM.render(
-  <Provider store={store}>
+    <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app')
+    document.getElementById('app')
 );

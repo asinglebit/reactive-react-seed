@@ -1,19 +1,21 @@
 /*
-* Libraries
-*/
+ * Libraries
+ */
 
-import { combineReducers } from 'redux';
+import {
+    combineReducers
+} from 'redux';
 
 /*
-* Reducers
-*/
+ * Reducers
+ */
 
 import todos from './todos';
 
 /*
-* Exports
-*/
+ * Exports
+ */
 
 export default combineReducers({
-	todos
+    todos
 });

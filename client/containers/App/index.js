@@ -1,74 +1,80 @@
 /**
-* Libraries
-*/
+ * Libraries
+ */
 
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, {
+    Component
+} from 'react';
+import {
+    bindActionCreators
+} from 'redux';
+import {
+    connect
+} from 'react-redux';
 
 /**
-* Actions
-*/
+ * Actions
+ */
 
 import * as Actions from 'actions';
 
 /**
-* Components
-*/
+ * Components
+ */
 
 import {
-  Button,
-  Todos
+    Button,
+    Todos
 } from 'components';
 
 /**
-* App container definition
-*/
+ * App container definition
+ */
 
 class App extends Component {
 
-  addTodo() {
-    this.props.actions.addTodo({
-      id: Math.random(),
-      text: 'Do something'
-    });
-  }
+    addTodo() {
+        this.props.actions.addTodo({
+            id: Math.random(),
+            text: 'Do something'
+        });
+    }
 
-  addEpicTodo() {
-    this.props.actions.addEpicTodo({
-      id: Math.random(),
-      text: 'Do something'
-    });
-  }
+    addEpicTodo() {
+        this.props.actions.addEpicTodo({
+            id: Math.random(),
+            text: 'Do something'
+        });
+    }
 
-  deleteTodo(id) {
-    this.props.actions.deleteTodo(id);
-  }
+    deleteTodo(id) {
+        this.props.actions.deleteTodo(id);
+    }
 
-  render() {
-    return (
-      <div className="app">
-        <Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
-        <Button click={ this.addTodo.bind(this) } title="Add todo"/>
-        <Button click={ this.addEpicTodo.bind(this) } title="Add epic todo"/>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="app">
+		    	<Todos todos={ this.props.todos } deleteTodo={ this.deleteTodo.bind(this) }/>
+		    	<Button click={ this.addTodo.bind(this) } title="Add todo"/>
+		    	<Button click={ this.addEpicTodo.bind(this) } title="Add epic todo"/>
+      		</div>
+        );
+    }
 }
 
 /**
-* Store bindings
-*/
+ * Store bindings
+ */
 
 export default connect(
-  (state) => {
-    return {
-      todos: state.todos
+    (state) => {
+        return {
+            todos: state.todos
+        }
+    },
+    (dispatch) => {
+        return {
+            actions: bindActionCreators(Actions, dispatch)
+        }
     }
-  },
-  (dispatch) => {
-    return {
-      actions: bindActionCreators(Actions, dispatch)
-    }
-  }
 )(App);

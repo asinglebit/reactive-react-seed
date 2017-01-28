@@ -1,24 +1,22 @@
 /**
-* Libraries
-*/
+ * Libraries
+ */
 
 import React from 'react';
 
 /**
-* Components
-*/
+ * Components
+ */
 
 import {
-  Todo
+    Todo
 } from '../../components';
 
 /**
-* Todos component definition and export
-*/
+ * Todos component definition and export
+ */
 
-export const Todos = props => 
-  <div className="todos">
-    {
-      props.todos.map(todo => <Todo key={ 'todo_' + todo.id } id={ todo.id } text={ todo.text } deleteTodo={ props.deleteTodo }/>)
-    }
-  </div>
+export const Todos = props =>
+    <div className="todos">
+		{ props.todos.map(todo => <Todo key={ 'todo_' + todo.id } id={ todo.id } text={ todo.text } deleteTodo={ props.deleteTodo }/>) }
+	</div>
