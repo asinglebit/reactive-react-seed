@@ -10,7 +10,17 @@ import { connect } from 'react-redux';
 * Actions
 */
 
-import * as AppActions from 'actions';
+import * as Actions from 'actions';
+
+/**
+* Components
+*/
+
+import { Todos } from 'components';
+
+/**
+* App container definition
+*/
 
 class App extends Component {
 
@@ -27,38 +37,27 @@ class App extends Component {
   }
 
   render() {
-    const {
-      todos
-    } = this.props;
-
     return (
-      <div className="viewport">
-        <div>Todos:</div>
-        {
-          todos.map(
-          todo => {
-              return <div key={todo.id}>{todo.id}:{todo.text}</div>
-            }
-          )
-        }
+      <div className="app">
+        <Todos todos={this.props.todos}/>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    todos: state.todos,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(AppActions, dispatch)
-  };
-}
+/**
+* Store bindings
+*/
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  (state) => {
+    return {
+      todos: state.todos
+    }
+  },
+  (dispatch) => {
+    return {
+      actions: bindActionCreators(Actions, dispatch)
+    }
+  }
 )(App);
