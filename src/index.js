@@ -24,12 +24,6 @@ import {
 } from 'containers';
 
 /**
- * Template
- */
-
-import 'assets/index.html';
-
-/**
  * Entry point
  */
 

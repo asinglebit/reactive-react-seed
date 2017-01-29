@@ -2,8 +2,12 @@
  * Libraries
  */
 
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
+const dashboardPlugin = require('webpack-dashboard/plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const extractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 /**
  * Common constants
@@ -18,8 +22,6 @@ const constants = require('./config/constants');
 const EVENT = process.env.npm_lifecycle_event || '';
 const IS_PROD = EVENT.includes('prod');
 
-
-
 /**
  * Common plugins
  */
@@ -28,14 +30,36 @@ const plugins = [
     new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         minChunks: Infinity,
-        filename: 'vendor.bundle.js'
+        filename: 'vendor-[hash].js',
     }),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(IS_PROD && 'production' || 'development')
         }
     }),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new htmlWebpackPlugin({
+        template: path.join(constants.SOURCE_PATH, 'index.html'),
+        path: constants.BUILD_PATH,
+        filename: 'index.html',
+    }),
+    new extractTextPlugin({
+        filename: 'dist/main.css',
+        allChunks: true
+    }),
+    new webpack.LoaderOptionsPlugin({
+        options: {
+            postcss: [
+                autoprefixer({
+                    browsers: [
+                        'last 3 version',
+                        'ie >= 10'
+                    ]
+                })
+            ],
+            context: constants.SOURCE_PATH
+        },
+    })
 ];
 
 /**
@@ -64,11 +88,13 @@ if (IS_PROD) {
             output: {
                 comments: false
             }
-        })
+        }),
+        new extractTextPlugin('style-[hash].css')
     );
 } else {
     plugins.push(
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new dashboardPlugin()
     );
 }
 
@@ -82,35 +108,37 @@ module.exports = function() {
         context: constants.SOURCE_PATH,
         entry: {
             js: './index.js',
-            vendor: ['react']
+            vendor: [
+                'babel-polyfill',
+                'react-dom',
+                'react-redux',
+                'react',
+                'redux',
+                'rxjs'
+            ]
         },
         output: {
             path: constants.DIST_PATH,
-            filename: '[name].bundle.js'
+            publicPath: '/',
+            filename: 'app-[hash].js',
         },
         module: {
             rules: [{
-                test: /\.html$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'file-loader',
-                    query: {
-                        name: '[name].[ext]'
-                    }
-                }
-            }, {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            }, {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: [
-                    'babel-loader'
-                ]
+                    'babel-loader',
+                ],
+            }, {
+                test: /\.(png|gif|jpg|svg)$/,
+                include: constants.IMG_PATH,
+                use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+            }, {
+                test: /\.scss$/,
+                loader: extractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader!postcss-loader!sass-loader',
+                }),
             }]
         },
         resolve: {
@@ -121,16 +149,6 @@ module.exports = function() {
             ]
         },
         plugins,
-        performance: IS_PROD && {
-            maxAssetSize: 2000000,
-            maxEntrypointSize: 2000000,
-            hints: 'warning'
-        },
-        stats: {
-            colors: {
-                green: '\u001b[32m'
-            }
-        },
         devServer: {
             contentBase: './src',
             historyApiFallback: true,
