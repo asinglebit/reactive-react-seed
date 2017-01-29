@@ -4,9 +4,9 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const dashboardPlugin = require('webpack-dashboard/plugin');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const extractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 /**
@@ -30,7 +30,7 @@ const plugins = [
     new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         minChunks: Infinity,
-        filename: 'vendor-[hash].js',
+        filename: 'vendor-[hash].js'
     }),
     new webpack.DefinePlugin({
         'process.env': {
@@ -38,12 +38,12 @@ const plugins = [
         }
     }),
     new webpack.NamedModulesPlugin(),
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
         template: path.join(constants.SOURCE_PATH, 'index.html'),
         path: constants.BUILD_PATH,
-        filename: 'index.html',
+        filename: 'index.html'
     }),
-    new extractTextPlugin({
+    new ExtractTextPlugin({
         filename: 'styles-[hash].css',
         allChunks: true
     }),
@@ -58,7 +58,7 @@ const plugins = [
                 })
             ],
             context: constants.SOURCE_PATH
-        },
+        }
     })
 ];
 
@@ -67,7 +67,6 @@ const plugins = [
  */
 
 if (IS_PROD) {
-    console.log('Production mode');
     plugins.push(
         new webpack.LoaderOptionsPlugin({
             minimize: true,
@@ -92,10 +91,9 @@ if (IS_PROD) {
         })
     );
 } else {
-    console.log('Development mode');
     plugins.push(
         new webpack.HotModuleReplacementPlugin(),
-        new dashboardPlugin()
+        new DashboardPlugin()
     );
 }
 
@@ -121,25 +119,25 @@ module.exports = function() {
         output: {
             path: constants.DIST_PATH,
             publicPath: '/',
-            filename: 'app-[hash].js',
+            filename: 'app-[hash].js'
         },
         module: {
             rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: [
-                    'babel-loader',
-                ],
+                    'babel-loader'
+                ]
             }, {
                 test: /\.(png|gif|jpg|svg)$/,
                 include: constants.IMG_PATH,
-                use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+                use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]'
             }, {
                 test: /\.scss$/,
-                loader: extractTextPlugin.extract({
+                loader: ExtractTextPlugin.extract({
                     fallbackLoader: 'style-loader',
-                    loader: 'css-loader!postcss-loader!sass-loader',
-                }),
+                    loader: 'css-loader!postcss-loader!sass-loader'
+                })
             }]
         },
         resolve: {
