@@ -5,9 +5,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "cross-env NODE_ENV=development && ./node_modules/webpack-dashboard/bin/webpack-dashboard.js -t 'React-Redux Boilerplate' -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-        "build": "rimraf dist && npm run lint && cross-env NODE_ENV=development webpack",
-        "build:dev": "npm run build",
-        "build:prod": "npm run build",
+        "build": "npm run build:prod",
+        "build:dev": "rimraf dist && npm run lint && cross-env NODE_ENV=development webpack",
+        "build:prod": "rimraf dist && npm run lint && cross-env NODE_ENV=production webpack",
         "build:run": "http-server ./dist",
         "lint": "eslint ./client ./webpack.config.js -f table || true"
     },

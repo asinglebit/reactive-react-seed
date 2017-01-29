@@ -44,7 +44,7 @@ const plugins = [
         filename: 'index.html',
     }),
     new extractTextPlugin({
-        filename: 'dist/main.css',
+        filename: 'styles-[hash].css',
         allChunks: true
     }),
     new webpack.LoaderOptionsPlugin({
@@ -67,6 +67,7 @@ const plugins = [
  */
 
 if (IS_PROD) {
+    console.log('Production mode');
     plugins.push(
         new webpack.LoaderOptionsPlugin({
             minimize: true,
@@ -88,10 +89,10 @@ if (IS_PROD) {
             output: {
                 comments: false
             }
-        }),
-        new extractTextPlugin('style-[hash].css')
+        })
     );
 } else {
+    console.log('Development mode');
     plugins.push(
         new webpack.HotModuleReplacementPlugin(),
         new dashboardPlugin()
