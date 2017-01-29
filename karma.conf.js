@@ -4,7 +4,7 @@ module.exports = function(config) {
     config.set({
         browsers: ['Chrome'],
         singleRun: true,
-        frameworks: ['jasmine', 'sinon', 'chai'],
+        frameworks: ['mocha', 'sinon', 'chai'],
         client: {
             chai: {
                 includeStack: true
@@ -16,7 +16,7 @@ module.exports = function(config) {
         preprocessors: {
             './src/**/*.spec.js': ['webpack', 'sourcemap']
         },
-        reporters: ['progress', 'html', 'coverage'],
+        reporters: ['mocha', 'html', 'coverage'],
         webpack: {
             devtool: 'source-map',
             module: {
