@@ -1,27 +1,38 @@
 React Application Seed
 
 
-Features:
+Code style:
 
 	- Beautifier
 	- Babel
 	- Eslint
-	- Redux
-	- Rxjs
-	- Redux Observable
-	- Sass
+
+Bundle packaging:
+
 	- Webpack 2
 	- Dashboard
 	- Tree Shaking
 	- Hot Module Reload
+	
+Libraries:
+
+	- Rxjs
+	- Redux
+	- Redux Observable
+	- Sass
+
+Testing:
+
+	- Karma
+	- Mocha
+	- Sinon
+	- Chai
+	- Istanbul
 
 Todo:
 
+	- Router
 	- Ramda
-	- Karma
-	- Jasmine
-	- Sinon
-	- Chai
 	- Protractor
 	- Reselect
 	- Flow
