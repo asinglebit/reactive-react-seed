@@ -16,6 +16,12 @@ import {
 import store from 'store';
 
 /**
+ * Styles
+ */
+
+import './static/styles/main.scss';
+
+/**
  * Containers
  */
 
@@ -31,5 +37,5 @@ ReactDOM.render(
     <Provider store={store}>
         <App />
 	</Provider>,
-    document.getElementById('app')
+    document.getElementById('root')
 );

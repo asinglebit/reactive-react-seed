@@ -5,6 +5,12 @@
 import React from 'react';
 
 /**
+ * Styles
+ */
+
+import './style.scss';
+
+/**
  * Button component definition and export
  */
 
