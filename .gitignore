@@ -5,3 +5,5 @@ _nogit
 node_modules
 
 dist
+coverage
+reports
