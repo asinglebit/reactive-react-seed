@@ -5,7 +5,7 @@
 import {
     ADD_TODO,
     DELETE_TODO
-} from 'actions';
+} from '../actions';
 
 /*
  * Default state

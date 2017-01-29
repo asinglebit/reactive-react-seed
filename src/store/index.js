@@ -14,8 +14,8 @@ import {
  * Reducers
  */
 
-import rootReducer from 'reducers';
-import rootEpic from 'epics';
+import rootReducer from '../reducers';
+import rootEpic from '../epics';
 
 /*
  * Wiring the store

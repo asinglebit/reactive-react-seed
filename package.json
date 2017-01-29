@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "description": "React Application Seed",
     "scripts": {
-        "test:watch:phantomjs": "npm run clean && karma start './karma/karma.watch.phantomjs.config.js'",
-        "test:watch:all": "npm run clean && karma start './karma/karma.watch.all.config.js'",
-        "test:once": "npm run clean && karma start './karma/karma.once.config.js'",
+        "test:watch:phantomjs": "npm run clean && cross-env NODE_ENV=production karma start './karma/karma.watch.phantomjs.config.js'",
+        "test:watch:all": "npm run clean && cross-env NODE_ENV=production karma start './karma/karma.watch.all.config.js'",
+        "test:once": "npm run clean && cross-env NODE_ENV=production karma start './karma/karma.once.config.js'",
         "test": "npm run test:watch:phantomjs",
         "start": "cross-env NODE_ENV=development && ./node_modules/webpack-dashboard/bin/webpack-dashboard.js -t 'React-Redux Boilerplate' -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
         "build": "npm run build:prod",

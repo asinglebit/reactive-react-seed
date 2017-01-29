@@ -10,7 +10,7 @@ import {
  * Reducers
  */
 
-import todos from './todos';
+import todos from './todos.reducer';
 
 /*
  * Exports

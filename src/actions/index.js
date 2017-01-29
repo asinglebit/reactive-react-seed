@@ -2,4 +2,4 @@
  * Exports
  */
 
-export * from './todos';
+export * from './todos.actions';

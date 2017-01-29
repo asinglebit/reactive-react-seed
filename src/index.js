@@ -13,7 +13,7 @@ import ReactDOM from 'react-dom';
 import {
     Provider
 } from 'react-redux';
-import store from 'store';
+import store from './store';
 
 /**
  * Styles
@@ -27,7 +27,7 @@ import './static/styles/main.scss';
 
 import {
     App
-} from 'containers';
+} from './containers';
 
 /**
  * Entry point

@@ -16,7 +16,7 @@ import {
  * Actions
  */
 
-import * as Actions from 'actions';
+import * as Actions from '../../actions';
 
 /**
  * Components
@@ -25,7 +25,7 @@ import * as Actions from 'actions';
 import {
     Button,
     Todos
-} from 'components';
+} from '../../components';
 
 /**
  * App container definition
