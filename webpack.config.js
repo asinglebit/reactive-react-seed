@@ -6,18 +6,19 @@ const webpack = require('webpack');
 const path = require('path');
 
 /**
+ * Common constants
+ */
+
+const constants = require('./config/constants');
+
+/**
  * Determining the environment
  */
 
 const EVENT = process.env.npm_lifecycle_event || '';
 const IS_PROD = EVENT.includes('prod');
 
-/**
- * Common constants
- */
 
-const SOURCE_PATH = path.join(__dirname, './src');
-const DIST_PATH = path.join(__dirname, './dist');
 
 /**
  * Common plugins
@@ -71,16 +72,20 @@ if (IS_PROD) {
     );
 }
 
+/**
+ * Exporting configuration
+ */
+
 module.exports = function() {
     return {
         devtool: IS_PROD ? 'source-map' : 'eval',
-        context: SOURCE_PATH,
+        context: constants.SOURCE_PATH,
         entry: {
             js: './index.js',
             vendor: ['react']
         },
         output: {
-            path: DIST_PATH,
+            path: constants.DIST_PATH,
             filename: '[name].bundle.js'
         },
         module: {
@@ -112,7 +117,7 @@ module.exports = function() {
             extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
             modules: [
                 path.resolve(__dirname, 'node_modules'),
-                SOURCE_PATH
+                constants.SOURCE_PATH
             ]
         },
         plugins,
@@ -135,13 +140,13 @@ module.exports = function() {
             hot: !IS_PROD,
             stats: {
                 assets: true,
-                children: false,
-                chunks: false,
+                children: true,
+                chunks: true,
                 hash: false,
                 modules: false,
                 publicPath: false,
                 timings: true,
-                version: false,
+                version: true,
                 warnings: true,
                 colors: {
                     green: '\u001b[32m'
