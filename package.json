@@ -8,6 +8,7 @@
         "build": "rimraf dist && npm run lint && cross-env NODE_ENV=development webpack",
         "build:dev": "npm run build",
         "build:prod": "npm run build",
+        "build:run": "http-server ./dist",
         "lint": "eslint ./client ./webpack.config.js -f table || true"
     },
     "devDependencies": {
@@ -34,6 +35,7 @@
         "file-loader": "0.8.5",
         "html-webpack-plugin": "^2.24.1",
         "node-sass": "^4.4.0",
+        "http-server": "^0.9.0",
         "postcss-loader": "^1.2.2",
         "react": "15.4.2",
         "react-dom": "15.4.2",
