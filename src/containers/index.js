@@ -5,4 +5,4 @@
 export {
     default as App
 }
-from './App';
+from './App/app.container';

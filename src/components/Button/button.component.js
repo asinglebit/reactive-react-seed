@@ -8,7 +8,7 @@ import React from 'react';
  * Styles
  */
 
-import './style.scss';
+import './button.style.scss';
 
 /**
  * Button component definition and export

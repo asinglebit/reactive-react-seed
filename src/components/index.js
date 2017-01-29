@@ -2,6 +2,6 @@
  * Exports
  */
 
-export * from './Button';
-export * from './Todo';
-export * from './Todos';
+export * from './Button/button.component';
+export * from './Todo/todo.component';
+export * from './Todos/todos.component';
