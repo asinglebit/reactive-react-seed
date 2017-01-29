@@ -8,16 +8,15 @@ Features:
 	- Eslint
 	- Redux
 	- Rxjs
-	- Rxjs Epics
-	- Webpack 2,
-	- Tree shaking
-	- HMR
+	- Redux Observable
+	- Sass
+	- Webpack 2
+	- Dashboard
+	- Tree Shaking
+	- Hot Module Reload
 
 Todo:
 
-	- Loading static assets
-	- Css
-	- Sass
 	- Ramda
 	- Karma
 	- Jasmine
