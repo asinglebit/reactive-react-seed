@@ -24,14 +24,30 @@ import * as Actions from '../../actions';
 
 import {
     Button,
-    Todos
+    Todos,
+    Composite
 } from '../../components';
 
 /**
  * App container definition
  */
 
-class App extends Component {
+export class App extends Component {
+
+    static propTypes = {
+        actions: React.PropTypes.object,
+        todos: React.PropTypes.array,
+
+        // Child components
+
+        Todos: React.PropTypes.func,
+        Button: React.PropTypes.func
+    }
+
+    static defaultProps = {
+        Todos,
+        Button
+    }
 
     constructor(props) {
         super(props);
@@ -56,21 +72,17 @@ class App extends Component {
     }
 
     render() {
+        const Todos = this.props.Todos;
+        const Button = this.props.Button;
         return (
-            <div className="app">
+            <Composite>
               <Todos todos={this.props.todos} deleteTodo={this.deleteTodo}/>
               <Button handleClick={this.addTodo} title="Add todo"/>
               <Button handleClick={this.addEpicTodo} title="Add epic todo"/>
-            </div>
+            </Composite>
         );
     }
 }
-
-App.propTypes = {
-    actions: React.PropTypes.object,
-    todos: React.PropTypes.array
-};
-
 
 /**
  * Store bindings

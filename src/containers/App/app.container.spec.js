@@ -2,17 +2,9 @@
  * Libraries
  */
 
-import React from "react";
+import React from 'react';
 import ReactDOM from "react-dom";
-
-/**
- * Store
- */
-
-import {
-    Provider
-} from 'react-redux';
-import store from '../../store';
+import TestUtils from "react-addons-test-utils";
 
 /**
  * Testing
@@ -20,13 +12,11 @@ import store from '../../store';
 
 import chai from "chai";
 import jsxChai from "jsx-chai";
-import TestUtils from "react-addons-test-utils";
-import shallowTestUtils from "react-shallow-testutils";
 chai.use(jsxChai);
 const expect = chai.expect;
 
 /**
- * Components
+ * Containers
  */
 
 import {
@@ -34,22 +24,67 @@ import {
 } from '../index';
 
 /**
+ * Components
+ */
+
+import {
+    Button,
+    Todos
+} from '../../components';
+
+/**
+ * Helpers
+ */
+
+import {
+    stub
+} from '../../helpers';
+
+/**
  * Test cases
  */
 
-/**
- * TODO: Will need to implement the mocked store
- */
-
 describe('App component', function() {
+    let state, store, props;
+
+    const StubButton = stub(Button);
+    const StubTodos = stub(Todos);
+
+    beforeEach(() => {
+        state = {
+            todos: [{
+                id: 1,
+                text: "Sample todo 1"
+            }, {
+                id: 2,
+                text: "Sample todo 2"
+            }, {
+                id: 3,
+                text: "Sample todo 3"
+            }]
+        };
+        store = {
+            subscribe: sinon.spy().named('subscribe'),
+            dispatch: sinon.spy().named('dispatch'),
+            getState: sinon.spy(() => state).named('getState')
+        };
+        props = {
+            Button: StubButton,
+            Todos: StubTodos
+        }
+    });
+
     it('Renders correctly', function() {
-        const renderer = TestUtils.createRenderer();
-        renderer.render(
-            <Provider store={store}>
-		        <App />
-			</Provider>
+        const app = TestUtils.renderIntoDocument(<App store={store} {...props}/>);
+        const todos = TestUtils.findRenderedComponentWithType(
+            app,
+            StubTodos
         );
-        const provider = renderer.getRenderOutput();
-        expect(provider).to.exist;
+        const buttons = TestUtils.scryRenderedComponentsWithType(
+            app,
+            StubButton
+        );
+        expect(todos.props.todos.length).to.be.equal(3);
+        expect(buttons.length).to.be.equal(2);
     });
 });
