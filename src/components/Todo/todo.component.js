@@ -26,7 +26,7 @@ export const Todo = props => {
     const deleteTodo = () => props.deleteTodo(props.id);
 
     return (
-        <div key = {props.id} className="todo">
+        <div key={props.id} className="todo">
 			<span>{props.id} {props.text}</span>
 			<Button handleClick={deleteTodo} title="X" />
 		</div>
@@ -38,7 +38,7 @@ export const Todo = props => {
  */
 
 Todo.propTypes = {
-    id: React.PropTypes.number,
+    id: React.PropTypes.string,
     text: React.PropTypes.string,
     deleteTodo: React.PropTypes.func
 };
