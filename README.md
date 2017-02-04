@@ -21,7 +21,7 @@ Libraries:
 	- Redux Observable
 	- Sass
 
-Testing:
+Testing tools:
 
 	- Karma
 	- Mocha
@@ -29,8 +29,18 @@ Testing:
 	- Chai
 	- Istanbul
 
+Testing pipeline:
+
+	- DOM rendering (PhantomJs, Chrome, Firefox)
+	- Shallow rendering
+	- Component stubbing utilities
+	- Reducer tests
+	- Epic tests
+
 Todo:
 
+	- Nock
+	- FetchRx
 	- Router
 	- Ramda
 	- Protractor
