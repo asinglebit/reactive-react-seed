@@ -22,7 +22,9 @@ const expect = chai.expect;
  * Epics
  */
 
-import todoEpics from './todos.epics';
+import todoEpics, {
+    addEpicTodoAction
+} from './todos.epics';
 
 /**
  * Actions
@@ -62,7 +64,7 @@ describe('Todos epics', () => {
         const actions$ = ActionsObservable.of(todoActions.addEpicTodo(payload));
         store.dispatch(todoActions.addEpicTodo(payload));
 
-        todoEpics[0](actions$).subscribe(() => {
+        addEpicTodoAction(actions$).subscribe(() => {
             expect(store.getActions().length).to.be.equal(2);
             expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_EPIC_TODO);
             expect(store.getActions()[0].payload).to.be.equal(payload);

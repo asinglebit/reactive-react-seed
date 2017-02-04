@@ -16,7 +16,7 @@ import * as Actions from '../actions';
  * Epics
  */
 
-export const addEpicTodoaction = action$ => {
+export const addEpicTodoAction = action$ => {
     return action$
         .ofType(Actions.ADD_EPIC_TODO)
         .delay(1000)
@@ -28,5 +28,5 @@ export const addEpicTodoaction = action$ => {
  */
 
 export default [
-    addEpicTodoaction
+    addEpicTodoAction
 ];
