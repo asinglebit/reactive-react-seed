@@ -10,7 +10,7 @@ import {
  * Epics
  */
 
-import todos from './todos';
+import todos from './todos.epics';
 
 /**
  * Exports
