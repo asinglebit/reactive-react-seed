@@ -46,7 +46,8 @@ function validateReactProps(props, realComponent, {
 } = {}) {
     var propTypes = realComponent.propTypes || {};
     var defaultProps = realComponent.defaultProps || {};
-    var effectiveProps = {...defaultProps,
+    var effectiveProps = {
+        ...defaultProps,
         ...props
     };
 

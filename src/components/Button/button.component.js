@@ -14,8 +14,9 @@ import './button.style.scss';
  * Button component definition and export
  */
 
-export const Button = props =>
-    <button onClick={props.handleClick}>{props.title}</button>;
+export const Button = props => (
+    <button onClick={props.handleClick}>{props.title}</button>
+);
 
 /**
  * Prop types

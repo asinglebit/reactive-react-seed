@@ -1,4 +1,4 @@
-/*
+/**
  * Actions
  */
 
@@ -7,7 +7,7 @@ import {
     DELETE_TODO
 } from '../actions';
 
-/*
+/**
  * Default state
  */
 

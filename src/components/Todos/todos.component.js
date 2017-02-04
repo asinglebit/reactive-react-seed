@@ -22,12 +22,13 @@ import {
  * Todos component definition and export
  */
 
-export const Todos = props =>
+export const Todos = props => (
     <div className="todos">
 		{ props.todos.map(todo =>
 			<Todo key={'todo_' + todo.id} id={todo.id} text={todo.text} deleteTodo={props.deleteTodo}/>)
 		}
-	</div>;
+	</div>
+);
 
 /**
  * Prop types

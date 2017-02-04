@@ -29,29 +29,58 @@ import {
 } from '../../components';
 
 /**
+ * Prop types
+ */
+
+const props = {
+    actions: React.PropTypes.object,
+    todos: React.PropTypes.array
+};
+
+const defaults = {
+    Todos,
+    Button
+};
+
+/**
+ * Dependency types
+ */
+
+const dependencies = {
+    Todos: React.PropTypes.func,
+    Button: React.PropTypes.func
+};
+
+/**
  * App container definition
  */
 
 export class App extends Component {
 
+    /**
+     * Static fields
+     */
+
     static propTypes = {
-        actions: React.PropTypes.object,
-        todos: React.PropTypes.array,
-
-        // Child components
-
-        Todos: React.PropTypes.func,
-        Button: React.PropTypes.func
+        ...props,
+        ...dependencies
     }
 
     static defaultProps = {
-        Todos,
-        Button
+        ...defaults
     }
+
+    /**
+     * Constructor
+     */
 
     constructor(props) {
         super(props);
     }
+
+    /**
+     * Methods
+     */
 
     addTodo = () => {
         this.props.actions.addTodo({
@@ -71,15 +100,19 @@ export class App extends Component {
         this.props.actions.deleteTodo(id);
     }
 
+    /**
+     * Markup
+     */
+
     render() {
         const Todos = this.props.Todos;
         const Button = this.props.Button;
         return (
-            <Composite>
+            <div>
               <Todos todos={this.props.todos} deleteTodo={this.deleteTodo}/>
               <Button handleClick={this.addTodo} title="Add todo"/>
               <Button handleClick={this.addEpicTodo} title="Add epic todo"/>
-            </Composite>
+            </div>
         );
     }
 }
