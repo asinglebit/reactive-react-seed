@@ -9,9 +9,12 @@ module.exports = {
         }
     },
     files: [
+        '../node_modules/babel-polyfill/dist/polyfill.js',
+        '../node_modules/isomorphic-fetch/fetch-npm-node.js',
         '../src/**/*.spec.js'
     ],
     preprocessors: {
+        '../node_modules/isomorphic-fetch/fetch-npm-node.js': ['webpack'],
         '../src/**/*.spec.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,

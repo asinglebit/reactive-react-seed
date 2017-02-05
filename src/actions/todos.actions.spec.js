@@ -13,9 +13,9 @@ import {
  * Testing
  */
 
-import nock from 'nock'
-import chai from "chai";
-import jsxChai from "jsx-chai";
+import fetchMock from 'fetch-mock';
+import chai from 'chai';
+import jsxChai from 'jsx-chai';
 chai.use(jsxChai);
 const expect = chai.expect;
 
@@ -54,7 +54,7 @@ describe('Todos actions', () => {
     });
 
     afterEach(() => {
-        nock.cleanAll();
+        fetchMock.restore();
         epicMiddleware.replaceEpic(combinedEpics);
     });
 
@@ -78,21 +78,32 @@ describe('Todos actions', () => {
         expect(store.getActions()[0].payload).to.be.equal(payload);
     });
 
-    // TODO: Fix this case
-    //
-    // it('Executes nocked async add epic todo action correctly', () => {
-    //     nock('https://jsonplaceholder.typicode.com')
-    //         .get('/todos/1')
-    //         .reply(200, {
-    //               id: 1,
-    //               title: 'delectus aut autem',
-    //             }
-    //         );
+    it('Executes nocked async add epic todo action correctly', (done) => {
+        fetchMock.get('*', {
+            id: 5,
+            title: 'Http async title'
+        });
 
-    //     store.dispatch(todoActions.addEpicHttpTodo());
-    //     expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_EPIC_HTTP_TODO);
-    //     expect(store.getActions()[1].type).to.be.equal(todoActions.ADD_TODO);
-    //     expect(store.getActions()[1].payload.id).to.be.equal('1');
-    //     expect(store.getActions()[1].payload.text).to.be.equal('delectus aut autem');
-    // });
+        store.dispatch(todoActions.addEpicHttpTodo());
+        setTimeout(() => {
+            expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_EPIC_HTTP_TODO);
+            expect(store.getActions()[1].type).to.be.equal(todoActions.ADD_TODO);
+            expect(store.getActions()[1].payload.id).to.be.equal('5');
+            expect(store.getActions()[1].payload.text).to.be.equal('Http async title');
+            done();
+        }, 0);
+    });
+
+    it('Executes the delete todo action correctly', () => {
+        const payload = {
+            id: 123,
+            text: "Todo"
+        };
+        store.dispatch(todoActions.addTodo(payload));
+        store.dispatch(todoActions.deleteTodo(123));
+        expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_TODO);
+        expect(store.getActions()[0].payload).to.be.equal(payload);
+        expect(store.getActions()[1].type).to.be.equal(todoActions.DELETE_TODO);
+        expect(store.getActions()[1].payload).to.be.equal(123);
+    });
 });

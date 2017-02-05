@@ -5,7 +5,6 @@
 import {
     Observable
 } from 'rxjs';
-import fetch from 'isomorphic-fetch';
 
 /**
  * Actions
@@ -28,16 +27,16 @@ export const addEpicHttpTodoAction = action$ => {
     return action$
         .ofType(Actions.ADD_EPIC_HTTP_TODO)
         .switchMap(() => Observable.fromPromise(
-        	fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => response.json())
+            fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => response.json())
         ))
         .map(response => {
-        	const todo = response;
-        	return Actions.addTodo({
-        		id: response.id.toString(),
-        		text: response.title
-        	});
+            const todo = response;
+            return Actions.addTodo({
+                id: response.id.toString(),
+                text: response.title
+            });
         })
-    }
+}
 
 /**
  * Exports
