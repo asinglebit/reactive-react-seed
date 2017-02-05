@@ -113,7 +113,8 @@ module.exports = function() {
                 'react-redux',
                 'react',
                 'redux',
-                'rxjs'
+                'rxjs',
+                'isomorphic-fetch'
             ]
         },
         output: {
@@ -134,9 +135,9 @@ module.exports = function() {
                 use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]'
             }, {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: 'css-loader!postcss-loader!sass-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!postcss-loader!sass-loader'
                 })
             }]
         },

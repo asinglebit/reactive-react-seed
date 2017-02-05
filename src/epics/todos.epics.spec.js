@@ -13,6 +13,7 @@ import {
  * Testing
  */
 
+import fetchMock from 'fetch-mock';
 import chai from "chai";
 import jsxChai from "jsx-chai";
 chai.use(jsxChai);
@@ -23,7 +24,8 @@ const expect = chai.expect;
  */
 
 import todoEpics, {
-    addEpicTodoAction
+    addEpicTodoAction,
+    addEpicHttpTodoAction
 } from './todos.epics';
 
 /**
@@ -47,29 +49,33 @@ const mockStore = configureMockStore([epicMiddleware]);
 describe('Todos epics', () => {
     let store;
 
-    beforeEach(() => {
-        store = mockStore();
-    });
-
     afterEach(() => {
-        epicMiddleware.replaceEpic(combinedEpics);
+        fetchMock.restore();
     });
 
-    it('Adds epic todo correctly', (done) => {
+    it('The flow of the add epic todo epic is correct', (done) => {
         const payload = {
             id: 123,
             text: "Epic todo"
         };
-
         const actions$ = ActionsObservable.of(todoActions.addEpicTodo(payload));
-        store.dispatch(todoActions.addEpicTodo(payload));
+        addEpicTodoAction(actions$).subscribe(action => {
+            expect(action.type).to.be.equal(todoActions.ADD_TODO);
+            expect(action.payload).to.be.equal(payload);
+            done();
+        })
+    });
 
-        addEpicTodoAction(actions$).subscribe(() => {
-            expect(store.getActions().length).to.be.equal(2);
-            expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_EPIC_TODO);
-            expect(store.getActions()[0].payload).to.be.equal(payload);
-            expect(store.getActions()[1].type).to.be.equal(todoActions.ADD_TODO);
-            expect(store.getActions()[1].payload).to.be.equal(payload);
+    it('The flow of the add epic http todo epic is correct', (done) => {
+        fetchMock.get('*', {
+            id: 5,
+            title: 'Http async title'
+        });
+        const actions$ = ActionsObservable.of(todoActions.addEpicHttpTodo());
+        addEpicHttpTodoAction(actions$).subscribe(action => {
+            expect(action.type).to.be.equal(todoActions.ADD_TODO);
+            expect(action.payload.id).to.be.equal('5');
+            expect(action.payload.text).to.be.equal('Http async title');
             done();
         })
     });

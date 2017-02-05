@@ -84,16 +84,20 @@ export class App extends Component {
 
     addTodo = () => {
         this.props.actions.addTodo({
-            id: Math.random(),
+            id: Math.random().toString(),
             text: 'Do something'
         });
     }
 
     addEpicTodo = () => {
         this.props.actions.addEpicTodo({
-            id: Math.random(),
+            id: Math.random().toString(),
             text: 'Do something'
         });
+    }
+
+    addEpicHttpTodo = () => {
+        this.props.actions.addEpicHttpTodo();
     }
 
     deleteTodo = (id) => {
@@ -112,6 +116,7 @@ export class App extends Component {
               <Todos todos={this.props.todos} deleteTodo={this.deleteTodo}/>
               <Button handleClick={this.addTodo} title="Add todo"/>
               <Button handleClick={this.addEpicTodo} title="Add epic todo"/>
+              <Button handleClick={this.addEpicHttpTodo} title="Add epic http todo"/>
             </div>
         );
     }

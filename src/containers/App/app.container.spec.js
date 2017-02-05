@@ -85,6 +85,6 @@ describe('App component', function() {
             StubButton
         );
         expect(todos.props.todos.length).to.be.equal(3);
-        expect(buttons.length).to.be.equal(2);
+        expect(buttons.length).to.be.equal(3);
     });
 });
