@@ -13,6 +13,7 @@ import {
  * Testing
  */
 
+import nock from 'nock'
 import chai from "chai";
 import jsxChai from "jsx-chai";
 chai.use(jsxChai);
@@ -53,6 +54,7 @@ describe('Todos actions', () => {
     });
 
     afterEach(() => {
+        nock.cleanAll();
         epicMiddleware.replaceEpic(combinedEpics);
     });
 
@@ -75,4 +77,22 @@ describe('Todos actions', () => {
         expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_EPIC_TODO);
         expect(store.getActions()[0].payload).to.be.equal(payload);
     });
+
+    // TODO: Fix this case
+    //
+    // it('Executes nocked async add epic todo action correctly', () => {
+    //     nock('https://jsonplaceholder.typicode.com')
+    //         .get('/todos/1')
+    //         .reply(200, {
+    //               id: 1,
+    //               title: 'delectus aut autem',
+    //             }
+    //         );
+
+    //     store.dispatch(todoActions.addEpicHttpTodo());
+    //     expect(store.getActions()[0].type).to.be.equal(todoActions.ADD_EPIC_HTTP_TODO);
+    //     expect(store.getActions()[1].type).to.be.equal(todoActions.ADD_TODO);
+    //     expect(store.getActions()[1].payload.id).to.be.equal('1');
+    //     expect(store.getActions()[1].payload.text).to.be.equal('delectus aut autem');
+    // });
 });

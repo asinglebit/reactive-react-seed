@@ -14,7 +14,6 @@ import {
  */
 
 import 'babel-polyfill';
-import 'whatwg-fetch';
 import chai from "chai";
 import jsxChai from "jsx-chai";
 chai.use(jsxChai);

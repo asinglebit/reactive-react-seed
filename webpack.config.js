@@ -67,7 +67,7 @@ const plugins = [
  */
 
 if (IS_PROD) {
-    plubabel-polyfillgins.push(
+    plugins.push(
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
@@ -114,7 +114,7 @@ module.exports = function() {
                 'react',
                 'redux',
                 'rxjs',
-                'whatwg-fetch'
+                'isomorphic-fetch'
             ]
         },
         output: {

@@ -5,6 +5,7 @@
 import {
     Observable
 } from 'rxjs';
+import fetch from 'isomorphic-fetch';
 
 /**
  * Actions
