@@ -24,6 +24,7 @@ describe('Todos reducer', function() {
         expect(result[0].id).to.be.equal(0);
         expect(result[0].text).to.be.equal('todo');
     });
+    
     it('Deletes a todo correctly', function() {
         const result = todos([{
             id: 0,

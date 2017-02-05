@@ -21,6 +21,7 @@
 	- Redux Observable
 	- Sass
 	- Isomorphic Fetch
+	- Ramda
 
 `Testing tools:`
 
@@ -45,7 +46,6 @@
 `Todo:`
 
 	- Router
-	- Ramda
 	- Protractor
 	- Reselect
 	- Flow

@@ -11,6 +11,7 @@ module.exports = {
     files: [
         '../node_modules/babel-polyfill/dist/polyfill.js',
         '../node_modules/isomorphic-fetch/fetch-npm-node.js',
+        '../node_modules/ramda/dist/ramda.min.js',
         '../src/**/*.spec.js'
     ],
     preprocessors: {

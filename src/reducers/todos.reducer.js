@@ -1,4 +1,10 @@
 /**
+ * Libraries
+ */
+
+import R from 'ramda';
+
+/**
  * Actions
  */
 
@@ -17,21 +23,17 @@ const defaultTodos = [];
  * Add todo
  */
 
-const addTodo = (state, action) => [...state, action.payload];
+const addTodo = (state, action) => {
+    return R.append(action.payload, state);
+}
 
 /**
  * Delete todo
  */
 
 const deleteTodo = (state, action) => {
-    let newState = [];
-    for (let i = 0; i < state.length; ++i) {
-        if (state[i].id !== action.payload) {
-            newState.push(Object.assign({}, state[i]));
-        }
-    }
-    return newState;
-};
+    return R.reject(R.pathEq(['id'], action.payload), state);
+}
 
 /**
  * Reducer
