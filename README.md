@@ -62,9 +62,9 @@
 	│   │   │   └── stateless.style.scss
 	│   │   └── index.js
 	│   ├── containers
-	│   │   ├── App
-	│   │   │   ├── app.container.js
-	│   │   │   └── app.container.spec.js
+	│   │   ├── Stateful
+	│   │   │   ├── stateful.container.js
+	│   │   │   └── stateful.container.spec.js
 	│   │   └── index.js
 	│   ├── actions
 	│   │   ├── index.js
