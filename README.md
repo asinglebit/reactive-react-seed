@@ -20,27 +20,30 @@ Libraries:
 	- Redux
 	- Redux Observable
 	- Sass
+	- Isomorphic Fetch
 
 Testing tools:
 
-	- Karma
+	- Karma (PhantomJs, Chrome, Firefox)
 	- Mocha
 	- Sinon
 	- Chai
 	- Istanbul
-
-Testing pipeline:
-
-	- DOM rendering (PhantomJs, Chrome, Firefox)
-	- Shallow rendering
+	- Redux Mock Store
+	- Isomorphic Fetch Mock
+	- Test Utils
+	- Shallow Test Utils
 	- Component stubbing utilities
+
+Featuring:
+
+	- Component tests
+	- Action tests
 	- Reducer tests
 	- Epic tests
 
 Todo:
 
-	- Nock
-	- FetchRx
 	- Router
 	- Ramda
 	- Protractor
