@@ -81,6 +81,7 @@
 	│   ├── selectors
 	│   │   └── index.js
 	│   │   └── sample.selector.js
+	│   │   └── sample.selector.spec.js
 	│   ├── store
 	│   │   └── index.js
 	│   ├── helpers
