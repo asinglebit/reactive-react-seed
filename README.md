@@ -19,6 +19,7 @@
 	- Rxjs
 	- Redux
 	- Redux Observable
+	- Redux Router
 	- Sass
 	- Isomorphic Fetch
 	- Ramda
@@ -45,7 +46,6 @@
 
 `Todo:`
 
-	- Router
 	- Protractor
 	- Reselect
 	- Flow
