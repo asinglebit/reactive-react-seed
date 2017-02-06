@@ -23,6 +23,7 @@
 	- Sass
 	- Isomorphic Fetch
 	- Ramda
+	- Reselect
 
 `Testing tools:`
 
@@ -47,7 +48,6 @@
 `Todo:`
 
 	- Protractor
-	- Reselect
 	- Flow
 	- Resemble
 
@@ -78,6 +78,9 @@
 	│   │   ├── index.js
 	│   │   └── sample.epics.js
 	│   │   └── sample.epics.spec.js
+	│   ├── selectors
+	│   │   └── index.js
+	│   │   └── sample.selector.js
 	│   ├── store
 	│   │   └── index.js
 	│   ├── helpers
@@ -111,6 +114,6 @@
 	│   ├── karma.watch.all.config.js
 	│   └── karma.watch.phantomjs.config.js
 	├── webpack.config.js
-	└── webpack.test.config.js
+	├── webpack.test.config.js
 	├── package.json
-	├── README.md
+	└── README.md

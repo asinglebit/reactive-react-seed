@@ -13,6 +13,13 @@ import {
 } from 'react-redux';
 
 /**
+ * Selectors
+ */
+
+import * as Selectors from '../../selectors';
+
+
+/**
  * Actions
  */
 
@@ -129,7 +136,7 @@ export class App extends Component {
 export default connect(
     (state) => {
         return {
-            todos: state.todos
+            todos: Selectors.getTodosComplexSelector(state)
         };
     },
     (dispatch) => {
