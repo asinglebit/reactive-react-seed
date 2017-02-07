@@ -1,9 +1,18 @@
 /**
+ * Libraries
+ */
+
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
+
+/**
  * Exporting configuration
  */
 
 module.exports = {
     devtool: 'source-map',
+    plugins: [
+        new FlowBabelWebpackPlugin(),
+    ],
     module: {
         rules: [{
             test: /\.(js|jsx)$/,

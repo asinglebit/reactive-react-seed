@@ -39,6 +39,7 @@
         "extract-text-webpack-plugin": "^2.0.0-rc.2",
         "fetch-mock": "^5.9.3",
         "file-loader": "0.8.5",
+        "flow-babel-webpack-plugin": "^1.0.1",
         "html-webpack-plugin": "^2.24.1",
         "http-server": "^0.9.0",
         "isomorphic-fetch": "^2.2.1",
