@@ -5,14 +5,22 @@ exports.config = {
     specs: ['../e2e/**/*.js'],
     onPrepare: () => {
         browser.ignoreSynchronization = true;
-        var width = 2250;
-        var height = 1200;
+        const width = 2250;
+        const height = 1200;
         browser.driver.manage().window().setSize(width, height);
         require('babel-register');
         require('./protractor.setup');
     },
     mochaOpts: {
-        enableTimeouts: false
+        enableTimeouts: false,
+        reporter: 'mochawesome-screenshots',
+        reporterOptions: {
+            reportDir: 'reports/e2e/',
+            reportName: 'TestExecutionReport',
+            reportTitle: 'Sample Reports',
+            takePassedScreenshot: true,
+            clearOldScreenshots: true
+        }
     },
     allScriptsTimeout: 15000
 }
