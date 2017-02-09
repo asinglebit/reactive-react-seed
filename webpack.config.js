@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 /**
@@ -59,7 +60,8 @@ const plugins = [
             ],
             context: constants.SOURCE_PATH
         }
-    })
+    }),
+    new FlowBabelWebpackPlugin()
 ];
 
 /**

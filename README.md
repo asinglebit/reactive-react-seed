@@ -24,6 +24,7 @@
 	- Isomorphic Fetch
 	- Ramda
 	- Reselect
+	- Flow
 
 `Testing tools:`
 
@@ -48,7 +49,6 @@
 `Todo:`
 
 	- Protractor
-	- Flow
 	- Resemble
 
 ##Directory Structure
@@ -109,12 +109,20 @@
 	│   └── index.js
 	├── config
 	│   └── constants.js
+	├── flow
+	│   └── asset.js.flow
+	│   └── style.js.flow
 	├── karma
 	│   ├── karma.common.config.js
 	│   ├── karma.once.config.js
 	│   ├── karma.watch.all.config.js
 	│   └── karma.watch.phantomjs.config.js
-	├── webpack.config.js
+	├── .babelrc
+	├── .eslintrc
+	├── .flowconfig
+	├── .gitignore
+	├── .jsbeautifyrc
+	├── webpack.config.js	
 	├── webpack.test.config.js
 	├── package.json
 	└── README.md

@@ -1,3 +1,5 @@
+/* @flow */
+
 /**
  * Libraries
  */
@@ -13,11 +15,18 @@ import {
 } from 'react-redux';
 
 /**
+ * Types
+ */
+
+import type {
+    TodoType
+} from "../../types";
+
+/**
  * Selectors
  */
 
 import * as Selectors from '../../selectors';
-
 
 /**
  * Actions
@@ -36,52 +45,25 @@ import {
 } from '../../components';
 
 /**
- * Prop types
- */
-
-const props = {
-    actions: React.PropTypes.object,
-    todos: React.PropTypes.array
-};
-
-const defaults = {
-    Todos,
-    Button
-};
-
-/**
- * Dependency types
- */
-
-const dependencies = {
-    Todos: React.PropTypes.func,
-    Button: React.PropTypes.func
-};
-
-/**
  * App container definition
  */
 
-export class App extends Component {
+export class App extends Component < AppDefaultPropsTypes, AppPropsTypes, void > {
 
     /**
      * Static fields
      */
 
-    static propTypes = {
-        ...props,
-        ...dependencies
-    }
-
     static defaultProps = {
-        ...defaults
+        Todos,
+        Button
     }
 
     /**
      * Constructor
      */
 
-    constructor(props) {
+    constructor(props: AppPropsTypes) {
         super(props);
     }
 
@@ -107,7 +89,7 @@ export class App extends Component {
         this.props.actions.addEpicHttpTodo();
     }
 
-    deleteTodo = (id) => {
+    deleteTodo = (id: string) => {
         this.props.actions.deleteTodo(id);
     }
 
@@ -127,6 +109,22 @@ export class App extends Component {
             </div>
         );
     }
+}
+
+/**
+ * Prop types
+ */
+
+export type AppPropsTypes = {
+    actions: any,
+    todos: Array < TodoType > ,
+    Todos: (x: any) => any,
+    Button: (x: any) => any
+}
+
+export type AppDefaultPropsTypes = {
+    Todos: (x: any) => any,
+    Button: (x: any) => any
 }
 
 /**

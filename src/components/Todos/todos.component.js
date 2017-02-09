@@ -1,3 +1,5 @@
+/* @flow */
+
 /**
  * Libraries
  */
@@ -11,6 +13,14 @@ import React from 'react';
 import './todos.style.scss';
 
 /**
+ * Types
+ */
+
+import type {
+    TodoType
+} from "../../types";
+
+/**
  * Components
  */
 
@@ -22,7 +32,7 @@ import {
  * Todos component definition and export
  */
 
-export const Todos = props => (
+export const Todos = (props: TodosPropsType) => (
     <div className="todos">
 		{
 			props.todos.map(todo => (
@@ -36,7 +46,7 @@ export const Todos = props => (
  * Prop types
  */
 
-Todos.propTypes = {
-    todos: React.PropTypes.array,
-    deleteTodo: React.PropTypes.func
+export type TodosPropsType = {
+    todos: Array < TodoType > ,
+    deleteTodo: (x: string) => void
 };

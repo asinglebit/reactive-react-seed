@@ -25,9 +25,6 @@ export function stub(realComponent) {
     class ReactStub extends Component {
         constructor(props) {
             super(props);
-            validateReactProps(props, realComponent, {
-                name
-            });
         }
         render() {
             return <span>This is a stub component</span>;
@@ -35,25 +32,4 @@ export function stub(realComponent) {
     }
 
     return ReactStub;
-}
-
-/**
- * Validate props
- */
-
-function validateReactProps(props, realComponent, {
-    name
-} = {}) {
-    var propTypes = realComponent.propTypes || {};
-    var defaultProps = realComponent.defaultProps || {};
-    var effectiveProps = {
-        ...defaultProps,
-        ...props
-    };
-
-    Object.keys(props).forEach((key) => {
-        if (typeof propTypes[key] === 'undefined' && key !== 'children') {
-            throw new Error(`${name} does not accept property ${key}`);
-        }
-    });
 }
