@@ -1,3 +1,5 @@
+/* @flow */
+
 /**
  * Libraries
  */
@@ -14,7 +16,7 @@ import './button.style.scss';
  * Button component definition and export
  */
 
-export const Button = props => (
+export const Button = (props: ButtonPropsType) => (
     <button onClick={props.handleClick}>{props.title}</button>
 );
 
@@ -22,7 +24,7 @@ export const Button = props => (
  * Prop types
  */
 
-Button.propTypes = {
-    handleClick: React.PropTypes.func,
-    title: React.PropTypes.string
+export type ButtonPropsType = {
+    handleClick ? : () => void,
+    title: string
 };

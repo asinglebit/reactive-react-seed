@@ -5,7 +5,7 @@
  */
 
 import type {
-    Todo
+    TodoType
 } from "../types";
 
 /**
@@ -13,7 +13,7 @@ import type {
  */
 
 export const ADD_TODO: string = 'ADD_TODO';
-export function addTodo(todo: Todo) {
+export function addTodo(todo: TodoType) {
     return {
         type: ADD_TODO,
         payload: todo
@@ -21,7 +21,7 @@ export function addTodo(todo: Todo) {
 }
 
 export const ADD_EPIC_TODO: string = 'ADD_EPIC_TODO';
-export function addEpicTodo(todo: Todo) {
+export function addEpicTodo(todo: TodoType) {
     return {
         type: ADD_EPIC_TODO,
         payload: todo

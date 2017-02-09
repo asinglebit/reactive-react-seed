@@ -1,7 +1,12 @@
 [ignore]
+.*/node_modules/.*
 
 [include]
 
 [libs]
 
 [options]
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/style.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/style.js.flow'
+module.name_mapper.extension='png' -> '<PROJECT_ROOT>/flow/asset.js.flow'
+module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/flow/asset.js.flow'
