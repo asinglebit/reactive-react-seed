@@ -91,7 +91,7 @@ describe('Todos actions', () => {
             expect(store.getActions()[1].payload.id).to.be.equal('5');
             expect(store.getActions()[1].payload.text).to.be.equal('Http async title');
             done();
-        }, 0);
+        }, 100);
     });
 
     it('Executes the delete todo action correctly', () => {

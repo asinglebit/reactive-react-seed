@@ -6,7 +6,7 @@ common.autoWatch = false;
 common.singleRun = true;
 
 common.htmlReporter = {
-    outputDir: 'reports',
+    outputDir: 'reports/spec/',
     templatePath: null,
     focusOnFailures: true,
     namedFiles: true,
@@ -19,7 +19,7 @@ common.htmlReporter = {
 common.coverageReporter = {
     reporters: [{
         type: 'html',
-        dir: '../coverage/'
+        dir: '../reports/coverage/'
     }, {
         type: 'text-summary'
     }, {

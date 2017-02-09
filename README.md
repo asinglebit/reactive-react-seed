@@ -28,6 +28,7 @@
 
 `Testing tools:`
 
+	- Protractor
 	- Karma (PhantomJs, Chrome, Firefox)
 	- Mocha
 	- Sinon
@@ -45,10 +46,10 @@
 	- Action tests
 	- Reducer tests
 	- Epic tests
+	- End-to-end tests
 
 `Todo:`
 
-	- Protractor
 	- Resemble
 
 ##Directory Structure
@@ -107,8 +108,12 @@
 	│   │           └── _normalize.scss
 	│   ├── index.html
 	│   └── index.js
+	├── e2e
+	│   └── sample.e2e.test.js
 	├── config
 	│   └── constants.js
+	│   └── protractor.config.js
+	│   └── protractor.setup.js
 	├── flow
 	│   └── asset.js.flow
 	│   └── style.js.flow
