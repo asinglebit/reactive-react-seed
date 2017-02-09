@@ -1,6 +1,3 @@
 /* @flow */
 
-export type Todo = {
-    id: string,
-    text: string
-}
+export * from './todo.type';
