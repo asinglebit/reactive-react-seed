@@ -14,7 +14,7 @@ const autoprefixer = require('autoprefixer');
  * Common constants
  */
 
-const constants = require('./configuration/application/constants');
+const constants = require('../application/constants');
 
 /**
  * Determining the environment
@@ -144,9 +144,16 @@ module.exports = function() {
             }]
         },
         resolve: {
-            extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+            extensions: [
+                '.webpack-loader.js',
+                '.web-loader.js',
+                '.loader.js',
+                '.js',
+                '.jsx',
+                '.scss'
+            ],
             modules: [
-                path.resolve(__dirname, 'node_modules'),
+                path.resolve(__dirname, '../../node_modules'),
                 constants.SOURCE_PATH
             ]
         },
