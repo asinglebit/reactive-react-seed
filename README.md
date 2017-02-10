@@ -1,6 +1,5 @@
 ##Reactive React Application Seed
 
-
 `Code style:`
 
 	- Beautifier
@@ -49,6 +48,50 @@
 	- Epic Tests
 	- End-To-End Tests
 	- Visual Regression Tests
+
+##Quickstart
+
+Use `npm install` to install all of the necessary dependencies and binaries. Duh.
+
+Use `npm start` to start the webpack development server with hmr capabilites and head over to `http://localhost:3000` for your local development environment.
+
+Use `npm test` to fire continuous unit/integration testing. All of the changes in your files will be watched and run through PhantomJs environment, test results and coverage will be reported to your console immediately.
+
+Use `npm run build` to build for production purposes.
+
+##Unit and Integration Tests
+
+Use `npm run test:spec:watch:phantomjs` to fire continuous unit/integration testing. All of the changes in your files will be watched and run through PhantomJs environment, test results and coverage will be reported to your console immediately.
+
+Use `npm run test:spec:watch:all` to fire continuous unit/integration testing. Same as above, only Firefox and Chrome will also be kept running.
+
+Use `npm run test:spec:once` to fire unit/integration testing. PhantomJs, Firefox and Chrome will be used to perform testing. This script will generate coverage and test completion reports.
+
+##End-To-End Tests
+
+Use `npm run test:e2e:update` in order to update you webdriver.
+
+Use `npm run test:e2e:driver` to start the webdriver.
+
+Use `npm run test:e2e:once` to run all of the available end-to-end tests. This script will generate end-to-end test completion report.
+
+##Visual Regression Tests
+
+Use `npm run test:vis:reference` in order to update all of the references. All of your future rendered images will be compared against references, acquired during this step. You should keep your references in your repository.
+
+Use `npm run test:vis:once` to fire visual regression tests and generate the visual regression report with screenshots.
+
+##Combined Tests for Continuous Integration
+
+Use `npm run test:ci` for complete testing including unit, integration, end-to-end and visual regression tests.
+
+##Building Pipeline
+
+Use `npm run build:prod` to build for production purposes.
+
+Use `npm run build:dev` to build for development purposes.
+
+Use `npm run build:run` to start the dedicated local server on `http://localhost:8080/` that will serve the binary build.
 
 ##Directory Structure
 
