@@ -1,8 +1,12 @@
+# Environment
+
 .DS_STORE
 .module-cache
 *.log*
 _nogit
 node_modules
+
+# Auto generated directories
 
 dist
 reports
