@@ -115,8 +115,12 @@
 	├── configuration
 	│   ├── application
 	│   │   └── constants.js
+	│   ├── webpack
+	│   │   ├── webpack.config.js
+	│   │   └── webpack.test.config.js
 	│   ├── backstop
-	│   │   └── references
+	│   │   ├── references
+	│   │   └── backstop.json
 	│   ├── flow
 	│   │   ├── asset.js.flow
 	│   │   └── style.js.flow
@@ -133,8 +137,5 @@
 	├── .flowconfig
 	├── .gitignore
 	├── .jsbeautifyrc
-	├── webpack.config.js	
-	├── webpack.test.config.js
-	├── backstop.json
 	├── package.json
 	└── README.md
