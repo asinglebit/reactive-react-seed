@@ -1,4 +1,4 @@
-##React Application Seed
+##Reactive React Application Seed
 
 
 `Code style:`
@@ -78,11 +78,11 @@
 	│   │   └── sample.epics.js
 	│   │   └── sample.epics.spec.js
 	│   ├── selectors
-	│   │   └── index.js
-	│   │   └── sample.selector.js
+	│   │   └── index.js
+	│   │   └── sample.selector.js
 	│   │   └── sample.selector.spec.js
 	│   ├── store
-	│   │   └── index.js
+	│   │   └── index.js
 	│   ├── helpers
 	│   │   ├── index.js
 	│   │   └── sample.helper.js
@@ -106,27 +106,28 @@
 	│   │           └── _normalize.scss
 	│   ├── index.html
 	│   └── index.js
-	├── e2e
-	│   └── sample.e2e.test.js
-	├── visual
-	│   ├── sample.before.js
-	│   └── sample.ready.js
-	├── config
+	├── tests
+	│   ├── e2e
+	│   │   └── sample.e2e.test.js
+	│   └── visual
+	│       ├── sample.before.js
+	│       └── sample.ready.js
+	├── configuration
 	│   ├── application
-	│	│	└── constants.js
+	│   │   └── constants.js
 	│   ├── backstop
-	│	│	└── references
+	│   │   └── references
 	│   ├── flow
-	│	│	├── asset.js.flow
-	│	│	└── style.js.flow
+	│   │   ├── asset.js.flow
+	│   │   └── style.js.flow
 	│   ├── karma
-	│   │	├── karma.common.config.js
-	│   │	├── karma.once.config.js
-	│   │	├── karma.watch.all.config.js
-	│   │	└── karma.watch.phantomjs.config.js
+	│   │   ├── karma.common.config.js
+	│   │   ├── karma.once.config.js
+	│   │   ├── karma.watch.all.config.js
+	│   │   └── karma.watch.phantomjs.config.js
 	│   └── protractor
-	│   	├── protractor.config.js
-	│   	└── protractor.setup.js
+	│       ├── protractor.config.js
+	│       └── protractor.setup.js
 	├── .babelrc
 	├── .eslintrc
 	├── .flowconfig

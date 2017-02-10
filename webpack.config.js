@@ -14,7 +14,7 @@ const autoprefixer = require('autoprefixer');
  * Common constants
  */
 
-const constants = require('./config/application/constants');
+const constants = require('./configuration/application/constants');
 
 /**
  * Determining the environment
@@ -152,7 +152,7 @@ module.exports = function() {
         },
         plugins,
         devServer: {
-            contentBase: './src',
+            contentBase: './source',
             historyApiFallback: true,
             port: 3000,
             compress: IS_PROD,

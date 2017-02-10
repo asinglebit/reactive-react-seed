@@ -7,7 +7,7 @@
 [libs]
 
 [options]
-module.name_mapper.extension='css' -> '<PROJECT_ROOT>/config/flow/style.js.flow'
-module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/config/flow/style.js.flow'
-module.name_mapper.extension='png' -> '<PROJECT_ROOT>/config/flow/asset.js.flow'
-module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/config/flow/asset.js.flow'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/configuration/flow/style.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/configuration/flow/style.js.flow'
+module.name_mapper.extension='png' -> '<PROJECT_ROOT>/configuration/flow/asset.js.flow'
+module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/configuration/flow/asset.js.flow'

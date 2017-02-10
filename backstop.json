@@ -29,8 +29,8 @@
         "onReadyScript": "todo.ready.js"
     }],
     "paths": {
-        "bitmaps_reference": "config/backstop/references",
-        "casper_scripts": "visual",
+        "bitmaps_reference": "configuration/backstop/references",
+        "casper_scripts": "tests/visual",
         "bitmaps_test": "reports/renders",
         "html_report": "reports/visual",
         "ci_report": "reports/visual_ci"
