@@ -34,28 +34,26 @@
 	- Sinon
 	- Chai
 	- Istanbul
+	- Backstopjs
 	- Redux Mock Store
 	- Isomorphic Fetch Mock
 	- Test Utils
 	- Shallow Test Utils
-	- Component stubbing utilities
+	- Component Stubbing Utilities
 
 `Featuring:`
 
-	- Component tests
-	- Action tests
-	- Reducer tests
-	- Epic tests
-	- End-to-end tests
-
-`Todo:`
-
-	- Resemble
+	- Component Tests
+	- Action Tests
+	- Reducer Tests
+	- Epic Tests
+	- End-To-End Tests
+	- Visual Regression Tests
 
 ##Directory Structure
 
 	.
-	├── src
+	├── source
 	│   ├── components
 	│   │   ├── Stateless
 	│   │   │   ├── stateless.component.js
@@ -110,18 +108,25 @@
 	│   └── index.js
 	├── e2e
 	│   └── sample.e2e.test.js
+	├── visual
+	│   ├── sample.before.js
+	│   └── sample.ready.js
 	├── config
-	│   └── constants.js
-	│   └── protractor.config.js
-	│   └── protractor.setup.js
-	├── flow
-	│   └── asset.js.flow
-	│   └── style.js.flow
-	├── karma
-	│   ├── karma.common.config.js
-	│   ├── karma.once.config.js
-	│   ├── karma.watch.all.config.js
-	│   └── karma.watch.phantomjs.config.js
+	│   ├── application
+	│	│	└── constants.js
+	│   ├── backstop
+	│	│	└── references
+	│   ├── flow
+	│	│	├── asset.js.flow
+	│	│	└── style.js.flow
+	│   ├── karma
+	│   │	├── karma.common.config.js
+	│   │	├── karma.once.config.js
+	│   │	├── karma.watch.all.config.js
+	│   │	└── karma.watch.phantomjs.config.js
+	│   └── protractor
+	│   	├── protractor.config.js
+	│   	└── protractor.setup.js
 	├── .babelrc
 	├── .eslintrc
 	├── .flowconfig
@@ -129,5 +134,6 @@
 	├── .jsbeautifyrc
 	├── webpack.config.js	
 	├── webpack.test.config.js
+	├── backstop.json
 	├── package.json
 	└── README.md

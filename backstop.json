@@ -25,13 +25,13 @@
         "readyEvent": null,
         "delay": 500,
         "misMatchThreshold": 0.1,
-        "onBeforeScript": "onBefore.js",
-        "onReadyScript": "onReady.js"
+        "onBeforeScript": "todo.before.js",
+        "onReadyScript": "todo.ready.js"
     }],
     "paths": {
-        "bitmaps_reference": "config/backstop/bitmaps_reference",
-        "bitmaps_test": "config/backstop/bitmaps_test",
-        "casper_scripts": "config/backstop/casper_scripts",
+        "bitmaps_reference": "config/backstop/references",
+        "casper_scripts": "visual",
+        "bitmaps_test": "reports/renders",
         "html_report": "reports/visual",
         "ci_report": "reports/visual_ci"
     },
