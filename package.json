@@ -1,13 +1,38 @@
 {
     "name": "react-seed",
     "version": "1.0.0",
-    "description": "React Application Seed",
+    "description": "Reactive React Application Seed",
+    "author": "Vis Viva",
+    "license": "MIT",
+    "main": "webpack.config.js",
+    "keywords": [
+        "babel",
+        "chai",
+        "eslint",
+        "fetch-mock",
+        "flow",
+        "isomorphic-fetch",
+        "istanbul",
+        "protractor",
+        "karma",
+        "mocha",
+        "ramda",
+        "react",
+        "redux",
+        "redux-observable",
+        "redux-router",
+        "rxjs",
+        "sass",
+        "sinon",
+        "webpack-dashboard",
+        "webpack2"
+    ],
     "scripts": {
+        "test": "npm run test:spec:watch:phantomjs",
         "test:ci": "npm run clean:all && npm run test:e2e:once && npm run test:spec:once",
+        "test:spec:once": "npm run clean:spec && cross-env NODE_ENV=production karma start './karma/karma.once.config.js'",
         "test:spec:watch:phantomjs": "npm run clean:spec && cross-env NODE_ENV=production karma start './karma/karma.watch.phantomjs.config.js'",
         "test:spec:watch:all": "npm run clean:spec && cross-env NODE_ENV=production karma start './karma/karma.watch.all.config.js'",
-        "test:spec:once": "npm run clean:spec && cross-env NODE_ENV=production karma start './karma/karma.once.config.js'",
-        "test": "npm run test:spec:watch:phantomjs",
         "test:e2e:once": "protractor ./config/protractor.config.js",
         "test:e2e:driver": "webdriver-manager start",
         "test:e2e:update": "webdriver-manager update",
@@ -97,9 +122,5 @@
         "webpack": "2.2.0",
         "webpack-dashboard": "^0.3.0",
         "webpack-dev-server": "2.2.0"
-    },
-    "main": "webpack.config.js",
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+    }
 }
