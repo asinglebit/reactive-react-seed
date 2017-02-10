@@ -1,4 +1,4 @@
-const webpackConfig = require('../webpack.test.config.js')
+const webpackConfig = require('../../webpack.test.config.js')
 
 module.exports = {
     basePath: '',
@@ -9,14 +9,14 @@ module.exports = {
         }
     },
     files: [
-        '../node_modules/babel-polyfill/dist/polyfill.js',
-        '../node_modules/isomorphic-fetch/fetch-npm-node.js',
-        '../node_modules/ramda/dist/ramda.min.js',
-        '../src/**/*.spec.js'
+        '../../node_modules/babel-polyfill/dist/polyfill.js',
+        '../../node_modules/isomorphic-fetch/fetch-npm-node.js',
+        '../../node_modules/ramda/dist/ramda.min.js',
+        '../../src/**/*.spec.js'
     ],
     preprocessors: {
-        '../node_modules/isomorphic-fetch/fetch-npm-node.js': ['webpack'],
-        '../src/**/*.spec.js': ['webpack', 'sourcemap']
+        '../../node_modules/isomorphic-fetch/fetch-npm-node.js': ['webpack'],
+        '../../src/**/*.spec.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,
     port: 8090,

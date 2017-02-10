@@ -14,7 +14,7 @@ const autoprefixer = require('autoprefixer');
  * Common constants
  */
 
-const constants = require('./config/constants');
+const constants = require('./config/application/constants');
 
 /**
  * Determining the environment

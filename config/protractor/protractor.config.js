@@ -2,7 +2,7 @@ exports.config = {
     framework: 'mocha',
     seleniumAddress: 'http://localhost:4444/wd/hub',
     baseUrl: 'http://localhost:3000',
-    specs: ['../e2e/**/*.js'],
+    specs: ['../../e2e/**/*.js'],
     onPrepare: () => {
         browser.ignoreSynchronization = true;
         const width = 2250;
