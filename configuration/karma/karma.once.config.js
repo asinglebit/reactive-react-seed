@@ -19,7 +19,7 @@ common.htmlReporter = {
 common.coverageReporter = {
     reporters: [{
         type: 'html',
-        dir: '../reports/coverage/'
+        dir: '../../reports/coverage/'
     }, {
         type: 'text-summary'
     }, {
